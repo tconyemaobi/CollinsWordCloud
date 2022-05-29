@@ -104,7 +104,7 @@ async def root (word: str | None = Query(None, min_length=50, max_length=3000),)
                         <legend class="lead">Word Cloud Example</legend>
                         <div class="mb-3">
                         <label class="form-label">Past your word</label>
-                        <textarea type="text" name="word" class="form-control" style="max-width: 70vw; min-height: 25vh;"></textarea>
+                        <textarea type="text" name="word" min="50" max="3000" class="form-control" style="max-width: 70vw; min-height: 25vh;" required></textarea>
                         </div>
                         
                         <button type="submit" class="btn btn-primary">Submit</button>
