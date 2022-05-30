@@ -1,5 +1,6 @@
 # uvicorn main:app --reload
 
+from cgitb import handler
 from fastapi import FastAPI
 from fastapi.responses import HTMLResponse,StreamingResponse
 from typing import Optional
@@ -17,6 +18,7 @@ from PIL import Image
 from wordcloud import STOPWORDS, WordCloud
 import io
 import urllib, base64
+from mangum import Mangum
 
 tags_metadata = [
     {
@@ -137,3 +139,4 @@ async def root (word: str | None = Query(None, min_length=50, max_length=3000),)
 
     return HTMLResponse(content=html_content, status_code=200)
 
+handler = Mangum(app=app)
