@@ -77,7 +77,6 @@ def word_cloud(text):
 async def root (word: str | None = Query(None, min_length=50, max_length=3000),):
     print(word)
     if word:
-        # word = ["best best bets ", "all in the best", "All good in good"]
         text = ''
         for i in word:
             text += i
