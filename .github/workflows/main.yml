@@ -49,11 +49,11 @@ jobs:
       - name: Run Tests   
         # Note that you have to activate the virtualenv in every step
         # because GitHub actions doesn't preserve the environment 
-        cd ./venv/lib/python3.9/site-packages  
+        # cd ./venv/lib/python3.9/site-packages  
         run: . venv/bin/activate && pytest
       - name: Create archive of dependencies
         run: |
-          cd ./venv/lib/
+          cd ./venv/lib
           zip -r9 ../../../../cwc.zip .
       - name: Add API files to Zip file
         run: cd ./project && zip -g ../cwc.zip -r .
