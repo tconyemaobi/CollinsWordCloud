@@ -22,7 +22,7 @@ jobs:
         # This action sets up a Python environment for use in actions
         uses: actions/setup-python@v3
         with:
-          python-version: 3.10.4      
+          python-version: 3.9.13   
         # optional: architecture: x64 x64 or x86. Defaults to x64 if not specified python-version: 3.10.4
 
       # Step-2 Install Python Virtual ENV
@@ -53,7 +53,9 @@ jobs:
         run: . venv/bin/activate && pytest
       - name: Create archive of dependencies
         run: |
-          cd ./venv/lib/python3.10/site-packages
+          ls -l ./venv/lib/*
+          ls -l ./venv/*
+          cd ./venv/lib/python3.9.13/site-packages
           zip -r9 ../../../../cwc.zip .
       - name: Add API files to Zip file
         run: cd ./project && zip -g ../cwc.zip -r .
@@ -95,3 +97,6 @@ jobs:
 
     # pythonLocation: /opt/hostedtoolcache/Python/3.9.13/x64
     # LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.9.13/x64/lib
+
+    # pythonLocation: /opt/hostedtoolcache/Python/3.10.4/x64
+    # LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.10.4/x64/lib
