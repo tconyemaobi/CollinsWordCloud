@@ -53,8 +53,9 @@ jobs:
         run: . venv/bin/activate && pytest
       - name: Create archive of dependencies
         run: |
+          which python
           cd ./venv/lib/
-          ls
+          which python
           zip -r9 ../../../../cwc.zip .
       - name: Add API files to Zip file
         run: cd ./project && zip -g ../cwc.zip -r .
