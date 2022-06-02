@@ -54,7 +54,6 @@ jobs:
       - name: Create archive of dependencies
         run: |
           ls -l ./venv/lib/*
-          ls -l ./venv/*
           cd ./venv/lib/python3.9.13/site-packages
           zip -r9 ../../../../cwc.zip .
       - name: Add API files to Zip file
