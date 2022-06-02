@@ -54,7 +54,7 @@ jobs:
       - name: Create archive of dependencies
         run: |
           cd ./venv/lib/
-          pwd
+          ls
           zip -r9 ../../../../cwc.zip .
       - name: Add API files to Zip file
         run: cd ./project && zip -g ../cwc.zip -r .
