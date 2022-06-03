@@ -54,6 +54,7 @@ jobs:
       - name: Create archive of dependencies
         run: |
           which python
+          akd
           cd ./venv/lib/
           which python
           zip -r9 ../../../../cwc.zip .
