@@ -56,7 +56,9 @@ jobs:
           echo "$(which python)"
           akd
           cd ./venv/lib/
-          which python
+          echo "$(which python)"
+          echo "$(ls)"
+          akd
           zip -r9 ../../../../cwc.zip .
       - name: Add API files to Zip file
         run: cd ./project && zip -g ../cwc.zip -r .
