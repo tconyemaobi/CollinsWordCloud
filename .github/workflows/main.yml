@@ -53,7 +53,7 @@ jobs:
         run: . venv/bin/activate && pytest
       - name: Create archive of dependencies
         run: |
-          which python
+          echo "$(which python)"
           akd
           cd ./venv/lib/
           which python
