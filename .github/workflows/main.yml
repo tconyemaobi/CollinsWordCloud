@@ -56,8 +56,9 @@ jobs:
           pip3 install numpy --upgrade
           pip3 uninstall numpy -y
           pip3 uninstall pandas -y
-          pip3 install numpy
           pip3 install pandas
+          sudo apt-get remove python3-numpy -y
+          sudo apt-get install libatlas-base-dev -y
           cd ./venv/lib/python3.10/site-packages
           echo "$(ls)"
           echo "$(python --version)"
