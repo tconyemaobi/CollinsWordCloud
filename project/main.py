@@ -10,7 +10,7 @@ from pyparsing import Optional
 
 # matplotlib.use("TKAgg")
 # matplotlib.use("agg") 
-matplotlib.use("macOSX")
+# matplotlib.use("macOSX")
 
 from matplotlib import pyplot as plt # import matplotlib.pyplot as plt
 
