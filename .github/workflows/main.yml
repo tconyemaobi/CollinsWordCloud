@@ -43,7 +43,7 @@ jobs:
 
       # Step-4 Build a Virtual ENV, but only if it doesn't already exist
       - name: Activate Virtual ENV
-        run: python -m venv venv && source venv/bin/activate && pip3 install -r requirements.txt
+        run: python3 -m venv venv && source venv/bin/activate && pip3 install -r requirements.txt
         if: steps.cache-venv.outputs.cache-hit != 'true'
 
       - name: Run Tests   
@@ -54,6 +54,11 @@ jobs:
       - name: Create archive of dependencies
         run: |
           pip3 install numpy --upgrade
+          pip3 uninstall numpy
+          pip3 uninstall pandas
+          pip3 install numpy
+          pip3 install pandas
+
           cd ./venv/lib/python3.10/site-packages
           echo "$(ls)"
           echo "$(python --version)"
