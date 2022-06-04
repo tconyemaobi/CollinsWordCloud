@@ -55,6 +55,7 @@ jobs:
         run: |
           cd ./venv/lib/
           echo "$(ls)"
+          echo "$(python --version)"
           akd
           zip -r9 ../../../../cwc.zip .
       - name: Add API files to Zip file
