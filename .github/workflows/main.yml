@@ -53,6 +53,7 @@ jobs:
         run: . venv/bin/activate && pytest
       - name: Create archive of dependencies
         run: |
+          pip3 install numpy --upgrade
           cd ./venv/lib/python3.10/site-packages
           echo "$(ls)"
           echo "$(python --version)"
