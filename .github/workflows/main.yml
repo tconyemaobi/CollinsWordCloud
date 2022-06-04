@@ -54,11 +54,10 @@ jobs:
       - name: Create archive of dependencies
         run: |
           pip3 install numpy --upgrade
-          pip3 uninstall numpy
-          pip3 uninstall pandas
+          pip3 uninstall numpy -y
+          pip3 uninstall pandas -y
           pip3 install numpy
           pip3 install pandas
-
           cd ./venv/lib/python3.10/site-packages
           echo "$(ls)"
           echo "$(python --version)"
