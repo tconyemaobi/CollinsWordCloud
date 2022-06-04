@@ -49,17 +49,19 @@ jobs:
       - name: Run Tests   
         # Note that you have to activate the virtualenv in every step
         # because GitHub actions doesn't preserve the environment 
-        # sudo apt-get install libatlas-base-dev -y
+        # sudo apt-get install libatlas-base-dev -y pip3 install numpy --upgrade
         # cd ./venv/lib/python3.9/site-packages /x64/lib 3.9.13/x64/lib/  cd ./venv/lib/python3.9.13/site-packages
         run: . venv/bin/activate && pytest
       - name: Create archive of dependencies
         run: |
-          pip3 install numpy --upgrade
           pip3 uninstall numpy -y
+          pip uninstall numpy -y
           pip3 uninstall pandas -y
           pip3 install pandas
           sudo apt-get update -y
           sudo apt-get install python3-numpy -y
+          pip3 install numpy==1.18 --force-reinstall
+
           cd ./venv/lib/python3.10/site-packages
           echo "$(ls)"
           echo "$(python --version)"
