@@ -14,7 +14,7 @@ from pyparsing import Optional
 
 from matplotlib import pyplot as plt # import matplotlib.pyplot as plt
 
-# import numpy as np
+import numpy as np
 from PIL import Image
 from wordcloud import STOPWORDS, WordCloud
 import io
@@ -47,13 +47,13 @@ app = FastAPI(
 # )
 
 
-@app.get("/")
-async def root():
-    return {"message": "Hello World"}
+# @app.get("/")
+# async def root():
+#     return {"message": "Hello World"}
 
 
 def word_cloud(text):
-    whale_mask = "a" # np.array(Image.open("static/img/cloud.png"))
+    whale_mask = np.array(Image.open("static/img/cloud.png"))
     # stopwords ={'은','입니다'}
     stopwords = set(STOPWORDS)
     # plt.figure(figsize = (20,5))
@@ -78,8 +78,9 @@ def word_cloud(text):
 #     with open(wordcloud, "rb") as image_file:
 #         return base64.b64encode(image_file.read())
     
-@app.get("/rr",response_class=HTMLResponse)
-async def root_cwc (word: str | None = Query(None, min_length=50, max_length=3000),):
+# None = Query(None, min_length=50, max_length=3000),
+@app.get("/",response_class=HTMLResponse)
+async def root(word: str = None):
     print(word)
     if word:
         text = ''
