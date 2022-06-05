@@ -28,7 +28,6 @@ jobs:
       # Step-2 Install Python Virtual ENV
       - name: Install Python Virtual ENV
         run: |
-          sudo apt autoremove python3.10* -y
           sudo apt update -y
           sudo apt upgrade -y
           sudo apt install software-properties-common -y
