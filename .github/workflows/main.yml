@@ -44,6 +44,11 @@ jobs:
       # Step-4 Build a Virtual ENV, but only if it doesn't already exist
       - name: Activate Virtual ENV
         run: |
+          sudo apt update -y
+          sudo apt install python3.9 -y
+          sudo apt install python3.9-dev -y
+          sudo apt install python3.9-venv -y
+          sudo apt install python3.9-distutils -y
           python3.9 -m venv venv && source venv/bin/activate && pip3 install -r requirements.txt
         if: steps.cache-venv.outputs.cache-hit != 'true'
 
