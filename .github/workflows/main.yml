@@ -27,16 +27,17 @@ jobs:
 
       # Step-2 Install Python Virtual ENV
       - name: Install Python Virtual ENV
+          # sudo apt update -y
+          # sudo apt upgrade -y
+          # sudo apt install software-properties-common -y
+          # sudo add-apt-repository ppa:deadsnakes/ppa -y
+          # sudo apt update -y
+          # sudo apt install python3.9 -y
+          # sudo apt install python3.9-dev -y
+          # sudo apt install python3.9-venv -y
+          # sudo apt install python3.9-distutils -y
         run: |
-          sudo apt update -y
-          sudo apt upgrade -y
-          sudo apt install software-properties-common -y
-          sudo add-apt-repository ppa:deadsnakes/ppa -y
-          sudo apt update -y
-          sudo apt install python3.9 -y
-          sudo apt install python3.9-dev -y
-          sudo apt install python3.9-venv -y
-          sudo apt install python3.9-distutils -y
+
           pip3 install virtualenv
 
       # Step-3 Setup Virtual ENV
@@ -107,7 +108,7 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
       - name: Deploy new Lambda
-        run: aws lambda update-function-code --function-name cwc-fastapi-v4 --s3-bucket cwc-fastapi-s3 --s3-key cwc.zip
+        run: aws lambda update-function-code --function-name cwc-fastapi-v5 --s3-bucket cwc-fastapi-s3 --s3-key cwc.zip
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_SECRET_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}

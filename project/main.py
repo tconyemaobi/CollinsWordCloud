@@ -79,7 +79,7 @@ def word_cloud(text):
 #         return base64.b64encode(image_file.read())
     
 @app.get("/rr",response_class=HTMLResponse)
-async def root (word: str | None = Query(None, min_length=50, max_length=3000),):
+async def root_cwc (word: str | None = Query(None, min_length=50, max_length=3000),):
     print(word)
     if word:
         text = ''
