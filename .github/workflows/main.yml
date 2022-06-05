@@ -69,6 +69,7 @@ jobs:
         # cd ./venv/lib/python3.9/site-packages /x64/lib 3.9.13/x64/lib/  cd ./venv/lib/python3.9.13/site-packages
         run: |
           python3 -m pip install --upgrade pip
+          echo "$(python --version)"
           . venv/bin/activate && pytest
       - name: Create archive of dependencies
         run: |
