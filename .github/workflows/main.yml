@@ -36,9 +36,7 @@ jobs:
           # sudo apt install python3.9-dev -y
           # sudo apt install python3.9-venv -y
           # sudo apt install python3.9-distutils -y
-        run: |
-
-          pip3 install virtualenv
+        run: pip3 install virtualenv
 
       # Step-3 Setup Virtual ENV
       # https://docs.github.com/en/actions/guides/caching-dependencies-to-speed-up-workflows
@@ -98,17 +96,17 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
       - name: Download Lambda cwc.zip
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: cwc
       - name: Upload to S3
-        run: aws s3 cp cwc.zip s3://cwc-fastapi-s3/cwc.zip
+        run: aws s3 cp cwc.zip s3://cwc-fastapi-s3-v6/cwc.zip
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_SECRET_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
       - name: Deploy new Lambda
-        run: aws lambda update-function-code --function-name cwc-fastapi-v5 --s3-bucket cwc-fastapi-s3 --s3-key cwc.zip
+        run: aws lambda update-function-code --function-name cwc-fastapi-v6 --s3-bucket cwc-fastapi-s3-v6 --s3-key cwc.zip
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_SECRET_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
