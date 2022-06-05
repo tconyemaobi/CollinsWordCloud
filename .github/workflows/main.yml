@@ -107,7 +107,7 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
       - name: Deploy new Lambda
-        run: aws lambda update-function-code --function-name cwc-fastapi-v3 --s3-bucket cwc-fastapi-s3 --s3-key cwc.zip
+        run: aws lambda update-function-code --function-name cwc-fastapi-v4 --s3-bucket cwc-fastapi-s3 --s3-key cwc.zip
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_SECRET_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
