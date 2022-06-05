@@ -74,7 +74,7 @@ jobs:
       - name: Create archive of dependencies
         run: |
           echo "$(which python3.9)"
-          cd ./venv/lib/python3.7/site-packages
+          cd ./venv/lib/python3.10/site-packages
           echo "$(ls)"
           echo "$(python --version)"
           zip -r9 ../../../../cwc2.zip .
