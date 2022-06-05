@@ -63,7 +63,7 @@ jobs:
         # pip uninstall numpy -y
         # pip3 uninstall pandas -y
         # pip3 install pandas
-        # sudo apt-get update -y
+        # sudo apt-get update -y cd /opt/hostedtoolcache/Python/3.9.13/x64/lib/python3.9/site-packages
         # sudo apt-get install python3-numpy -y
         # pip3 install numpy==1.18 --force-reinstall
         # cd ./venv/lib/python3.9/site-packages /x64/lib 3.9.13/x64/lib/  cd ./venv/lib/python3.9.13/site-packages
@@ -74,7 +74,7 @@ jobs:
       - name: Create archive of dependencies
         run: |
           echo "$(which python3.9)"
-          cd /opt/hostedtoolcache/Python/3.9.13/x64/lib/python3.9/site-packages
+          cd ./venv/lib/python3.10/site-packages
           echo "$(ls)"
           echo "$(python --version)"
           zip -r9 ../../../../cwc.zip .
