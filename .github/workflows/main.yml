@@ -69,7 +69,7 @@ jobs:
       - name: Add API files to Zip file
         run: cd ./project && zip -g ../cwc.zip -r .
       - name: Upload zip file artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: cwc
           path: cwc.zip
