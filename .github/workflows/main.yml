@@ -74,7 +74,6 @@ jobs:
           cd ./venv/lib/python3.9/site-packages
           echo "$(ls)"
           echo "$(python --version)"
-          ddd
           zip -r9 ../../../../cwc.zip .
       - name: Add API files to Zip file
         run: cd ./project && zip -g ../cwc.zip -r .
