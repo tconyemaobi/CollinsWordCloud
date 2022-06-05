@@ -1,12 +1,12 @@
 # uvicorn main:app --reload
 
-from cgitb import handler
+# from cgitb import handler
 from fastapi import FastAPI
 from fastapi.responses import HTMLResponse,StreamingResponse
-from typing import Optional
-from fastapi import APIRouter, Depends,Query
-import matplotlib
-from pyparsing import Optional
+# from typing import Optional
+# from fastapi import APIRouter, Depends,Query
+
+# from pyparsing import Optional
 
 # matplotlib.use("TKAgg")
 # matplotlib.use("agg") 
@@ -144,3 +144,4 @@ async def root(word: str = None):
     return HTMLResponse(content=html_content, status_code=200)
 
 handler = Mangum(app=app)
+
