@@ -41,6 +41,7 @@ app = FastAPI(
     openapi_url="/cwc/api/v1/coreapi.json",
     log_config=None
 )
+handler = Mangum(app=app)
 
 # app.add_middleware(
 # CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"]
@@ -143,5 +144,5 @@ async def root(word: str = None):
 
     return HTMLResponse(content=html_content, status_code=200)
 
-handler = Mangum(app=app)
+
 
